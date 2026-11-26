@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 class MigrateLegacyOrdersCommand extends Command
 {
-    protected $signature = 'megapress:migrate-legacy-data';
+    protected $signature = 'wim:migrate-legacy-data';
 
     protected $description = 'Backfill legacy orders and order_items into the WhatsApp flow schema idempotently.';
 
@@ -31,9 +31,9 @@ class MigrateLegacyOrdersCommand extends Command
             ->whereNull('code')
             ->chunkById(100, function ($orders) {
                 foreach ($orders as $order) {
-                    $code = $order->invoice_number ?: ('MP-LEGACY-' . $order->id);
+                    $code = $order->invoice_number ?: ('WIM-LEGACY-' . $order->id);
                     if (Order::where('code', $code)->where('id', '!=', $order->id)->exists()) {
-                        $code = 'MP-LEGACY-' . $order->id;
+                        $code = 'WIM-LEGACY-' . $order->id;
                     }
 
                     $newStatus = match (strtolower((string) $order->status)) {

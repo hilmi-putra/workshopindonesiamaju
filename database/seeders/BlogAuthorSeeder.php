@@ -16,7 +16,7 @@ class BlogAuthorSeeder extends Seeder
         $authors = [
             [
                 'name' => 'John Doe',
-                'bio' => 'Senior Editor at MegaPress.',
+                'bio' => 'Senior Editor at Workshop Indonesia Maju.',
                 'social_media' => ['twitter' => 'https://twitter.com/johndoe'],
             ],
             [

@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Profil Admin | Admin Mega Press')
+@section('title', 'Profil Admin | Admin WIM')
 @section('breadcrumb', 'Profil')
 @section('page_title', 'Profil & Keamanan Admin')
 

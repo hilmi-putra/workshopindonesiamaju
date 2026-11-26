@@ -26,6 +26,13 @@ class AdminCrudAndReportTest extends TestCase
 
         $this->actingAs($admin);
 
+        // Render Book Create Stepper, IDR Format & Cover Preview
+        $this->get(route('admin.books.create'))
+            ->assertOk()
+            ->assertSee('Identitas Buku')
+            ->assertSee('Harga Normal (IDR)')
+            ->assertSee('Preview Cover Buku');
+
         // Create Book
         $this->post(route('admin.books.store'), [
             'title' => 'Buku Uji Monolith',
@@ -41,10 +48,16 @@ class AdminCrudAndReportTest extends TestCase
         $book = Book::where('title', 'Buku Uji Monolith')->firstOrFail();
         $this->assertSame(15, $book->stock);
 
+        // Render Book Edit with formatted IDR initial value
+        $this->get(route('admin.books.edit', $book))
+            ->assertOk()
+            ->assertSee('95.000')
+            ->assertSee('Preview Cover Buku');
+
         // Create Blog Post
         $this->post(route('admin.blog.posts.store'), [
             'title' => 'Artikel Uji Editorial',
-            'content' => '<p>Isi artikel blog editorial Mega Press.</p>',
+            'content' => '<p>Isi artikel blog editorial Workshop Indonesia Maju.</p>',
             'status' => 'published',
         ])->assertRedirect(route('admin.blog.posts.index'));
 
@@ -52,7 +65,7 @@ class AdminCrudAndReportTest extends TestCase
 
         // Order PDFs & Reports
         $order = Order::create([
-            'code' => 'MP-20261126-PDF1',
+            'code' => 'WIM-20261126-PDF1',
             'customer_name' => 'Pembeli PDF',
             'customer_phone' => '08123456789',
             'customer_address' => 'Jakarta',

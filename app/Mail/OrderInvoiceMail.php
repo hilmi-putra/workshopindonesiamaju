@@ -23,7 +23,7 @@ class OrderInvoiceMail extends Mailable
 
     public function build()
     {
-        return $this->subject('Invoice Pesanan Anda #' . $this->order->invoice_number . ' - MegaBookstore')
+        return $this->subject('Invoice Pesanan Anda #' . $this->order->invoice_number . ' - WIM Bookstore')
                     ->view('emails.order_invoice') // We will create this blade view
                     ->attachData($this->pdfContent, 'Invoice-' . $this->order->invoice_number . '.pdf', [
                         'mime' => 'application/pdf',

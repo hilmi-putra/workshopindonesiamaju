@@ -33,7 +33,7 @@ class AdminOrderStockTest extends TestCase
         ]);
 
         $order = Order::create([
-            'code' => 'MP-20261126-TEST',
+            'code' => 'WIM-20261126-TEST',
             'customer_name' => 'Pelanggan Uji',
             'customer_phone' => '081200001111',
             'customer_address' => 'Yogyakarta',

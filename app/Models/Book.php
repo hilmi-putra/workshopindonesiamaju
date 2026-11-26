@@ -75,7 +75,7 @@ class Book extends Model
     public function getCoverUrlAttribute(): string
     {
         if (!$this->cover_image) {
-            return 'https://placehold.co/400x600/DAD6C9/171512?text=' . urlencode(Str::limit($this->title ?? 'MegaPress', 20, ''));
+            return asset('images/wim-about-books.jpg');
         }
 
         if (Str::startsWith($this->cover_image, ['http://', 'https://'])) {

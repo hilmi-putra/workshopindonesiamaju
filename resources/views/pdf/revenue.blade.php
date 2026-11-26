@@ -18,7 +18,7 @@
 </head>
 <body>
     <div class="header">
-        <span class="title">MEGA PRESS - LAPORAN REVENUE</span><br>
+        <span class="title">WORKSHOP INDONESIA MAJU - LAPORAN REVENUE</span><br>
         <small style="color: #666;">Dicetak pada: {{ now()->format('d M Y H:i') }}</small>
     </div>
 
@@ -91,7 +91,7 @@
     @endif
 
     <div class="footer">
-        Mega Press Publishing Platform &copy; {{ date('Y') }}. Dokumen ini dihasilkan secara otomatis dari sistem keuangan.
+        Workshop Indonesia Maju &copy; {{ date('Y') }}. Dokumen ini dihasilkan secara otomatis dari sistem keuangan.
     </div>
 </body>
 </html>

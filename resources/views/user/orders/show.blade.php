@@ -1,11 +1,11 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Detail Pesanan ' . $order->display_code . ' | Mega Press')
+@section('title', 'Detail Pesanan ' . $order->display_code . ' | Workshop Indonesia Maju')
 
 @section('dashboard_content')
 @php
     $waAdmin = preg_replace('/[^0-9]/', '', (string) config('services.whatsapp.number', '6285724693474'));
-    $contactWaUrl = 'https://wa.me/' . $waAdmin . '?text=' . rawurlencode("Halo Admin Mega Press, saya ingin menanyakan pesanan dengan kode {$order->display_code}.");
+    $contactWaUrl = 'https://wa.me/' . $waAdmin . '?text=' . rawurlencode("Halo Admin Workshop Indonesia Maju, saya ingin menanyakan pesanan dengan kode {$order->display_code}.");
 @endphp
 
 <div class="space-y-6">

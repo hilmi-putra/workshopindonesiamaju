@@ -19,7 +19,7 @@
 </head>
 <body>
     <div class="header">
-        <span class="title">MEGA PRESS - LAPORAN ROYALTI & KEUANGAN</span><br>
+        <span class="title">WORKSHOP INDONESIA MAJU - LAPORAN ROYALTI & KEUANGAN</span><br>
         <small style="color: #666;">Dicetak pada: {{ now()->format('d M Y H:i') }}</small>
     </div>
 
@@ -68,7 +68,7 @@
     </table>
 
     <div class="footer">
-        Mega Press Publishing Platform &copy; {{ date('Y') }}. Dokumen perhitungan royalti resmi.
+        Workshop Indonesia Maju &copy; {{ date('Y') }}. Dokumen perhitungan royalti resmi.
     </div>
 </body>
 </html>

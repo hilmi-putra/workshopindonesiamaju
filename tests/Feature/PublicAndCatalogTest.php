@@ -41,12 +41,16 @@ class PublicAndCatalogTest extends TestCase
             'publish_date' => now(),
         ]);
 
-        $this->get(route('home'))->assertOk()->assertSee('Mega Press');
+        $this->get(route('home'))->assertOk()->assertSee('Workshop Indonesia Maju');
         $this->get(route('bookstore.index'))->assertOk();
         $this->get(route('bookstore.show', $book->slug))->assertOk()->assertSee($book->title);
         $this->get(route('blog.index'))->assertOk()->assertSee($post->title);
         $this->get(route('blog.show', $post->slug))->assertOk()->assertSee($post->title);
+        $this->get(route('search'))->assertOk()->assertSee('Pencarian Populer');
         $this->get(route('search', ['q' => $book->title]))->assertOk()->assertSee($book->title);
+        $this->get(route('search', ['q' => $author->name]))->assertOk()->assertSee($author->name)->assertSee($book->title);
+        $this->get(route('search', ['q' => $post->title]))->assertOk()->assertSee($post->title);
+        $this->assertDatabaseHas('search_histories', ['keyword' => $book->title]);
         $this->get(route('sitemap'))->assertOk();
     }
 

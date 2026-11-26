@@ -17,9 +17,9 @@ class AdminSeeder extends Seeder
     public function run(): void
     {
         User::firstOrCreate(
-            ['email' => 'superadmin@megapress.co.id'],
+            ['email' => 'superadmin@workshopindonesiamaju.co.id'],
             [
-                'name' => 'megapress',
+                'name' => 'Workshop Indonesia Maju',
                 'password' => 'passwordhilmi',
                 'role' => UserRole::Admin,
                 'is_active' => true,
@@ -27,6 +27,6 @@ class AdminSeeder extends Seeder
             ]
         );
 
-        $this->command->info('✓ Super Admin account created/verified: superadmin@megapress.co.id');
+        $this->command->info('✓ Super Admin account created/verified: superadmin@workshopindonesiamaju.co.id');
     }
 }

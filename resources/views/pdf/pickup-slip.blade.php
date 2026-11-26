@@ -7,7 +7,7 @@
         body { font-family: sans-serif; font-size: 12px; color: #111; margin: 0; padding: 15px; }
         .container { border: 2px solid #DB8B00; border-radius: 8px; padding: 20px; max-width: 550px; margin: 0 auto; }
         .header { border-bottom: 2px solid #DB8B00; padding-bottom: 12px; margin-bottom: 15px; display: table; width: 100%; }
-        .logo { font-size: 20px; font-weight: 900; color: #171512; display: table-cell; vertical-align: middle; }
+        .logo { font-size: 16px; font-weight: 900; color: #171512; display: table-cell; vertical-align: middle; }
         .badge { display: table-cell; text-align: right; vertical-align: middle; font-size: 13px; font-weight: bold; background: #FFF4E5; color: #DB8B00; padding: 6px 12px; border: 1px solid #DB8B00; border-radius: 4px; }
         .code-box { background: #fdfdfd; border: 1px dashed #DB8B00; text-align: center; padding: 12px; margin-bottom: 16px; border-radius: 6px; }
         .pickup-code { font-size: 22px; font-weight: 900; letter-spacing: 2px; color: #171512; }
@@ -26,7 +26,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <div class="logo">MEGA PRESS</div>
+            <div class="logo">WORKSHOP INDONESIA MAJU</div>
             <div class="badge">DOKUMEN PICKUP ORDER</div>
         </div>
 
@@ -40,7 +40,7 @@
             <tr>
                 <td>
                     <div class="title">LOKASI TOKO PENGAMBILAN</div>
-                    <strong>Mega Press Bookstore — Toko Utama</strong><br>
+                    <strong>WIM Bookstore — Toko Utama</strong><br>
                     Jl. Percetakan Negara No. 1<br>
                     Jakarta Pusat, DKI Jakarta 10560<br>
                     Jam Operasional: 09:00 - 21:00 WIB
@@ -107,7 +107,7 @@
         </table>
 
         <div class="footer">
-            Dokumen internal Toko Mega Press &bull; Dicetak: {{ date('d M Y H:i') }} WIB
+            Dokumen internal Toko Workshop Indonesia Maju &bull; Dicetak: {{ date('d M Y H:i') }} WIB
         </div>
     </div>
 </body>

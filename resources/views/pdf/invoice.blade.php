@@ -6,7 +6,7 @@
     <style>
         body { font-family: sans-serif; font-size: 12px; color: #333; }
         .header { border-bottom: 2px solid #DB8B00; padding-bottom: 10px; margin-bottom: 20px; }
-        .logo { font-size: 24px; font-weight: bold; color: #171512; }
+        .logo { font-size: 18px; font-weight: bold; color: #171512; }
         .invoice-title { font-size: 20px; font-weight: bold; color: #DB8B00; text-transform: uppercase; float: right; }
         .info-section { width: 100%; margin-bottom: 20px; }
         .info-section td { width: 50%; vertical-align: top; }
@@ -20,7 +20,7 @@
 </head>
 <body>
     <div class="header">
-        <span class="logo">MEGA PRESS</span>
+        <span class="logo">WORKSHOP INDONESIA MAJU</span>
         <span class="invoice-title">INVOICE</span>
     </div>
 
@@ -28,9 +28,9 @@
         <tr>
             <td>
                 <strong>Diterbitkan oleh:</strong><br>
-                Mega Press Nusantara<br>
+                Workshop Indonesia Maju<br>
                 WhatsApp: {{ config('services.whatsapp.number', '6285724693474') }}<br>
-                admin@megapress.co.id
+                admin@workshopindonesiamaju.co.id
             </td>
             <td>
                 <strong>Untuk:</strong><br>
@@ -84,7 +84,7 @@
     @endif
 
     <div class="footer">
-        Terima kasih telah berbelanja di Mega Bookstore — Mega Press Nusantara.
+        Terima kasih telah berbelanja di WIM Bookstore — Workshop Indonesia Maju.
     </div>
 </body>
 </html>

@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Dashboard Pelanggan | Mega Press')
+@section('title', 'Dashboard Pelanggan | Workshop Indonesia Maju')
 
 @section('dashboard_content')
 <div class="bg-white rounded-2xl border border-[#DDD8C8] overflow-hidden">

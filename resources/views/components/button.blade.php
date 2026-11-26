@@ -5,14 +5,14 @@
 ])
 
 @php
-    $base = 'inline-flex items-center justify-center font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#DB8B00]/50 disabled:opacity-50 disabled:pointer-events-none cursor-pointer';
+    $base = 'inline-flex items-center justify-center font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[var(--brand-primary,#2B3288)]/40 disabled:opacity-50 disabled:pointer-events-none cursor-pointer';
     $variants = [
-        'primary' => 'bg-[#DB8B00] hover:bg-[#b06f00] text-white shadow-sm',
-        'dark' => 'bg-[#171512] hover:bg-[#DB8B00] text-white',
-        'forest' => 'bg-[#084c3c] hover:bg-[#063a2e] text-white',
-        'outline' => 'border border-[#DDD8C8] bg-white hover:bg-[#FAF8F4] text-[#171512]',
-        'danger' => 'bg-red-600 hover:bg-red-700 text-white',
-        'ghost' => 'bg-transparent hover:bg-black/5 text-[#171512]',
+        'primary' => 'bg-[var(--brand-primary,#2B3288)] hover:bg-[var(--brand-primary-hover,#1F256D)] text-white shadow-sm',
+        'dark' => 'bg-[#111218] hover:bg-[var(--brand-primary,#2B3288)] text-white',
+        'forest' => 'bg-[#2B3288] hover:bg-[#1F256D] text-white',
+        'outline' => 'border border-[var(--brand-border,#C9CEDF)] bg-white hover:bg-[var(--brand-surface,#F3F4F7)] text-[#111218]',
+        'danger' => 'bg-red-600 hover:bg-red-700 text-white shadow-sm',
+        'ghost' => 'bg-transparent hover:bg-black/5 text-[#111218]',
     ];
     $sizes = [
         'sm' => 'h-9 px-4 text-xs rounded-lg',

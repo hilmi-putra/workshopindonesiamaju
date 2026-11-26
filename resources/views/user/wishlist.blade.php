@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Wishlist Saya | Mega Press')
+@section('title', 'Wishlist Saya | Workshop Indonesia Maju')
 
 @section('dashboard_content')
 <div class="bg-white rounded-2xl border border-[#DDD8C8] overflow-hidden">
@@ -21,7 +21,7 @@
                             <a href="{{ route('bookstore.show', $wish->book->slug) }}" class="font-serif text-xl text-[#171512] hover:text-[#DB8B00]">
                                 {{ $wish->book->title }}
                             </a>
-                            <p class="text-xs text-gray-500">{{ $wish->book->author?->name ?? 'Mega Press' }}</p>
+                            <p class="text-xs text-gray-500">{{ $wish->book->author?->name ?? 'Workshop Indonesia Maju' }}</p>
                             <p class="text-sm font-bold text-[#DB8B00] mt-1">Rp {{ number_format((float)$wish->book->final_price, 0, ',', '.') }}</p>
                         </div>
                     </div>
@@ -31,7 +31,14 @@
                            class="px-5 py-2.5 bg-[#171512] hover:bg-[#DB8B00] text-white text-xs font-bold uppercase tracking-wider transition-colors">
                             Lihat &amp; Beli
                         </a>
-                        <form method="POST" action="{{ route('dashboard.wishlist.remove', $wish->book->id) }}">
+                        <form method="POST"
+                              action="{{ route('dashboard.wishlist.remove', $wish->book->id) }}"
+                              data-confirm
+                              data-confirm-title="Hapus dari Wishlist?"
+                              data-confirm-message="Buku ini akan dihapus dari daftar wishlist Anda."
+                              data-confirm-item="{{ $wish->book->title }}"
+                              data-confirm-button="Ya, Hapus"
+                              data-confirm-variant="danger">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="px-4 py-2.5 border border-red-200 text-red-600 hover:bg-red-50 text-xs font-bold uppercase tracking-wider cursor-pointer">

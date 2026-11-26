@@ -1,14 +1,14 @@
 @extends('layouts.admin')
 
-@section('title', 'Data Pelanggan | Admin Mega Press')
+@section('title', 'Data Pelanggan | Admin WIM')
 @section('breadcrumb', 'Pelanggan')
 @section('page_title', 'Data Pelanggan')
 
 @section('content')
 <div class="space-y-5">
     <form method="GET" action="{{ route('admin.customers.index') }}" class="flex gap-3">
-        <input type="text" name="search" value="{{ request('search') }}" placeholder="Cari nama, email, atau HP..." class="flex-1 h-10 rounded-xl border border-gray-200 px-4 text-sm">
-        <button type="submit" class="px-5 h-10 rounded-xl bg-[#171512] text-white text-xs font-bold uppercase cursor-pointer">Cari</button>
+        <input type="text" name="search" value="{{ request('search') }}" placeholder="Cari nama, email, atau HP..." class="flex-1 h-10 rounded-xl border border-[#D9DFEE] px-4 text-sm">
+        <button type="submit" class="px-5 h-10 rounded-xl bg-[#2B3288] hover:bg-[#20266E] text-white text-xs font-bold uppercase cursor-pointer transition-colors">Cari</button>
     </form>
 
     <div class="overflow-x-auto">
@@ -33,7 +33,7 @@
                         <td class="py-3 font-semibold">{{ $customer->orders_count }}</td>
                         <td class="py-3 font-semibold">{{ $customer->wishlists_count }}</td>
                         <td class="py-3 text-right">
-                            <a href="{{ route('admin.customers.show', $customer) }}" class="text-xs font-bold text-[#DB8B00] hover:underline">Detail</a>
+                            <a href="{{ route('admin.customers.show', $customer) }}" class="text-xs font-bold text-[#2B3288] hover:underline">Detail</a>
                         </td>
                     </tr>
                 @empty

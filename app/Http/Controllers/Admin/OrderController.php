@@ -88,7 +88,7 @@ class OrderController extends Controller
             $waPhone = '62' . substr($waPhone, 1);
         }
         $waChatUrl = $waPhone
-            ? "https://wa.me/{$waPhone}?text=" . rawurlencode("Halo {$order->customer_name}, kami dari Admin Mega Press mengonfirmasi pesanan {$order->display_code} (Status: {$order->status_label}).")
+            ? "https://wa.me/{$waPhone}?text=" . rawurlencode("Halo {$order->customer_name}, kami dari Admin Workshop Indonesia Maju mengonfirmasi pesanan {$order->display_code} (Status: {$order->status_label}).")
             : null;
 
         return view('admin.orders.show', [

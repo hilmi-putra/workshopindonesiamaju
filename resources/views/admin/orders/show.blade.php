@@ -28,7 +28,7 @@
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
     <div class="lg:col-span-8 space-y-6">
         {{-- Customer Info --}}
-        <div class="p-6 rounded-2xl border border-gray-100 bg-[#FAF8F4] text-sm space-y-1">
+        <div class="p-6 rounded-2xl border border-[#E3E7F3] bg-[#F5F7FC] text-sm space-y-1">
             <p class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Data Pemesan</p>
             <p class="font-bold text-base text-[#171512]">{{ $order->customer_name }}</p>
             <p class="text-gray-600">HP/WA: {{ $order->customer_phone }}</p>
@@ -39,7 +39,7 @@
         </div>
 
         {{-- Order Items --}}
-        <div class="border border-gray-100 rounded-2xl overflow-hidden">
+        <div class="border border-[#E3E7F3] rounded-2xl overflow-hidden">
             <div class="px-6 py-4 bg-gray-50 border-b border-gray-100 font-bold text-xs uppercase tracking-wider text-gray-500">
                 Item Buku
             </div>
@@ -59,14 +59,14 @@
                     </div>
                 @endforeach
             </div>
-            <div class="px-6 py-4 bg-[#FAF8F4] border-t border-gray-100 flex justify-between items-center">
+            <div class="px-6 py-4 bg-[#F5F7FC] border-t border-[#E3E7F3] flex justify-between items-center">
                 <span class="font-bold text-sm uppercase">Total Harga Buku</span>
-                <span class="font-black text-xl text-[#DB8B00]">Rp {{ number_format($order->display_total, 0, ',', '.') }}</span>
+                <span class="font-black text-xl text-[#2B3288]">Rp {{ number_format($order->display_total, 0, ',', '.') }}</span>
             </div>
         </div>
 
         {{-- Stock Movements for this order --}}
-        <div class="border border-gray-100 rounded-2xl p-6">
+        <div class="border border-[#E3E7F3] rounded-2xl p-6">
             <h3 class="font-bold text-xs uppercase tracking-wider text-gray-400 mb-3">Mutasi Stok Terkait Pesanan Ini</h3>
             @forelse($order->stockMovements as $mv)
                 <div class="py-2 border-b border-gray-100 last:border-0 flex justify-between text-xs">
@@ -83,20 +83,28 @@
 
     {{-- Right Sidebar: Status Transition & Timeline --}}
     <div class="lg:col-span-4 space-y-6">
-        <div class="border border-gray-100 rounded-2xl p-6 bg-white shadow-xs">
+        <div class="border border-[#E3E7F3] rounded-2xl p-6 bg-white shadow-xs">
             <h3 class="font-bold text-sm uppercase tracking-wider text-[#171512] mb-1">Ubah Status Pesanan</h3>
             <p class="text-xs text-gray-500 mb-4">
-                Status saat ini: <strong class="text-[#DB8B00]">{{ $order->status_label }}</strong>.
+                Status saat ini: <strong class="text-[#2B3288]">{{ $order->status_label }}</strong>.
                 Stok dikurangi otomatis saat <em>Confirmed</em> dan dikembalikan jika <em>Cancelled</em>.
             </p>
 
-            <form method="POST" action="{{ route('admin.orders.status', $order) }}" class="space-y-4">
+            <form method="POST"
+                  action="{{ route('admin.orders.status', $order) }}"
+                  data-confirm
+                  data-confirm-title="Perbarui Status Pesanan?"
+                  data-confirm-message="Perubahan status akan memperbarui audit timeline dan menyesuaikan stok buku secara otomatis sesuai status yang dipilih."
+                  data-confirm-item="{{ $order->display_code }} — {{ $order->customer_name }}"
+                  data-confirm-button="Ya, Simpan Status"
+                  data-confirm-variant="primary"
+                  class="space-y-4">
                 @csrf
                 @method('PATCH')
 
                 <div>
                     <label class="block text-xs font-bold uppercase tracking-wider mb-1">Status Baru</label>
-                    <select name="status" class="w-full h-11 rounded-xl border border-[#DDD8C8] px-3 text-sm bg-white">
+                    <select name="status" class="w-full h-11 rounded-xl border border-[#D9DFEE] px-3 text-sm bg-white">
                         @foreach($statuses as $key => $label)
                             <option value="{{ $key }}" @selected($order->status === $key)>{{ $label }}</option>
                         @endforeach
@@ -105,18 +113,18 @@
 
                 <div>
                     <label class="block text-xs font-bold uppercase tracking-wider mb-1">Catatan Audit (Opsional)</label>
-                    <input type="text" name="note" placeholder="Misal: Sudah transfer BCA..." class="w-full h-10 rounded-xl border border-[#DDD8C8] px-3 text-sm">
+                    <input type="text" name="note" placeholder="Misal: Sudah transfer BCA..." class="w-full h-10 rounded-xl border border-[#D9DFEE] px-3 text-sm">
                 </div>
 
                 <x-button type="submit" variant="primary" class="w-full">Simpan Perubahan Status</x-button>
             </form>
         </div>
 
-        <div class="border border-gray-100 rounded-2xl p-6 bg-[#FAF8F4]">
+        <div class="border border-[#E3E7F3] rounded-2xl p-6 bg-[#F5F7FC]">
             <h3 class="font-bold text-xs uppercase tracking-wider text-gray-400 mb-4">Audit Timeline</h3>
             <div class="space-y-3">
                 @forelse($order->timeline as $event)
-                    <div class="text-xs border-l-2 border-[#DB8B00] pl-3">
+                    <div class="text-xs border-l-2 border-[#2B3288] pl-3">
                         <p class="font-bold uppercase text-[#171512]">{{ $event->status }}</p>
                         <p class="text-gray-600">{{ $event->description }}</p>
                         <p class="text-gray-400 mt-0.5">{{ $event->created_at?->format('d M Y, H:i') }} &middot; {{ $event->actor_name ?? 'Sistem' }}</p>

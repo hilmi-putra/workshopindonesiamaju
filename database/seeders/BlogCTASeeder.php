@@ -16,7 +16,7 @@ class BlogCTASeeder extends Seeder
             [
                 'name' => 'Publish with Us',
                 'title' => 'Ready to Publish Your Book?',
-                'description' => 'Join thousands of authors who have successfully published their books with MegaPress.',
+                'description' => 'Join thousands of authors who have successfully published their books with Workshop Indonesia Maju.',
                 'button_text' => 'Get Started',
                 'button_link' => '/publishing',
             ],

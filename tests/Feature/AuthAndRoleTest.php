@@ -91,7 +91,7 @@ class AuthAndRoleTest extends TestCase
         $other = User::factory()->create(['role' => UserRole::User]);
 
         $order = Order::create([
-            'code' => 'MP-20261126-ABCD',
+            'code' => 'WIM-20261126-ABCD',
             'user_id' => $owner->id,
             'customer_name' => 'Owner',
             'customer_phone' => '0812345',

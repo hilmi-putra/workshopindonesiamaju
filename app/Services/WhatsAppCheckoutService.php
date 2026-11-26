@@ -20,7 +20,7 @@ class WhatsAppCheckoutService
     {
         $date = now()->format('Ymd');
         do {
-            $code = 'MP-' . $date . '-' . Str::upper(Str::random(4));
+            $code = 'WIM-' . $date . '-' . Str::upper(Str::random(4));
         } while (Order::where('code', $code)->exists());
 
         return $code;
@@ -162,7 +162,7 @@ class WhatsAppCheckoutService
         }
 
         $lines = [
-            "Halo Admin Mega Press, saya ingin memesan buku:",
+            "Halo Admin Workshop Indonesia Maju, saya ingin memesan buku:",
             "",
             "*Kode Pesanan:* {$order->display_code}",
             "*Nama:* {$order->customer_name}",

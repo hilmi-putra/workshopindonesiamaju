@@ -44,7 +44,7 @@ class SocialiteController extends Controller
 
             if (!$user) {
                 $user = User::create([
-                    'name' => $googleUser->getName() ?: 'Pengguna Mega Press',
+                    'name' => $googleUser->getName() ?: 'Pengguna Workshop Indonesia Maju',
                     'email' => $googleUser->getEmail(),
                     'password' => bcrypt(Str::random(24)),
                     'provider' => AuthProvider::Google->value,

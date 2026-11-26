@@ -12,7 +12,7 @@ use InvalidArgumentException;
 
 class CartService
 {
-    public const SESSION_KEY = 'megapress_cart';
+    public const SESSION_KEY = 'wim_cart';
 
     public function getItems(): Collection
     {
@@ -33,7 +33,7 @@ class CartService
                         'book' => $book,
                         'title' => $book->title,
                         'slug' => $book->slug,
-                        'author' => $book->author?->name ?? 'Mega Press',
+                        'author' => $book->author?->name ?? 'Workshop Indonesia Maju',
                         'cover_url' => $book->cover_url,
                         'price' => $price,
                         'qty' => $qty,
@@ -69,7 +69,7 @@ class CartService
                 'book' => $book,
                 'title' => $book->title,
                 'slug' => $book->slug,
-                'author' => $book->author?->name ?? 'Mega Press',
+                'author' => $book->author?->name ?? 'Workshop Indonesia Maju',
                 'cover_url' => $book->cover_url,
                 'price' => $price,
                 'qty' => $qty,

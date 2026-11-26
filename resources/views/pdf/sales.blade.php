@@ -19,7 +19,7 @@
 </head>
 <body>
     <div class="header">
-        <span class="title">MEGA PRESS - LAPORAN PENJUALAN</span><br>
+        <span class="title">WORKSHOP INDONESIA MAJU - LAPORAN PENJUALAN</span><br>
         <small style="color: #666;">Periode: {{ $startDate ?? '-' }} s/d {{ $endDate ?? '-' }} &middot; Dicetak: {{ now()->format('d M Y H:i') }}</small>
     </div>
 
@@ -68,7 +68,7 @@
     </table>
 
     <div class="footer">
-        Mega Press Nusantara &copy; {{ date('Y') }}.
+        Workshop Indonesia Maju &copy; {{ date('Y') }}.
     </div>
 </body>
 </html>

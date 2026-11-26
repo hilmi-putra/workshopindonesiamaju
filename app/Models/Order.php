@@ -58,7 +58,7 @@ class Order extends Model
 
     public function getDisplayCodeAttribute(): string
     {
-        return $this->code ?: ($this->invoice_number ?: 'MP-' . $this->id);
+        return $this->code ?: ($this->invoice_number ?: 'WIM-' . $this->id);
     }
 
     public function getDisplayTotalAttribute(): float

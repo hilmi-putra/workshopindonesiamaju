@@ -14,7 +14,7 @@
 
     <div @click="open = false" class="fixed inset-0 bg-black/50 backdrop-blur-xs"></div>
 
-    <div @click.stop class="relative w-full {{ $maxWidth }} bg-white rounded-2xl border border-[#DDD8C8] shadow-2xl overflow-hidden z-10">
+    <div @click.stop class="relative w-full {{ $maxWidth }} bg-white rounded-2xl border border-[#C9CEDF] shadow-2xl overflow-hidden z-10">
         @if($title)
             <div class="flex items-center justify-between px-6 py-4 border-b border-gray-100">
                 <h3 class="font-bold text-lg text-[#171512]">{{ $title }}</h3>

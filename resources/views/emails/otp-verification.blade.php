@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="x-apple-disable-message-reformatting">
-    <title>Kode Verifikasi - Mega Press</title>
+    <title>Kode Verifikasi - Workshop Indonesia Maju</title>
     <!--[if mso]>
     <noscript>
         <xml>
@@ -33,7 +33,7 @@
 
     <!-- Preheader text (hidden) -->
     <div style="display: none; font-size: 1px; color: #ffffff; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden;">
-        Here is your Mega Press authentication code: {{ $otp }}
+        Here is your Workshop Indonesia Maju authentication code: {{ $otp }}
     </div>
 
     <!-- Main wrapper -->
@@ -47,7 +47,7 @@
                     <!-- Logo Area -->
                     <tr>
                         <td align="center" style="padding-bottom: 24px;">
-                            <img src="{{ $message->embed(public_path('images/logo.png')) }}" alt="Mega Press Logo" width="48" height="48" style="display: block; width: 48px; height: auto;">
+                            <img src="{{ $message->embed(public_path('wim.png')) }}" alt="Logo Workshop Indonesia Maju" width="48" height="48" style="display: block; width: 48px; height: auto;">
                         </td>
                     </tr>
 
@@ -65,7 +65,7 @@
                         <td class="content-box" style="padding: 24px; border: 1px solid #d0d7de; border-radius: 6px; background-color: #ffffff;">
                             
                             <p style="margin: 0 0 16px 0; font-size: 14px; line-height: 1.5; color: #24292f;">
-                                Here is your Mega Press authentication code:
+                                Here is your Workshop Indonesia Maju authentication code:
                             </p>
 
                             <!-- OTP Code -->
@@ -89,7 +89,7 @@
 
                             <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #24292f;">
                                 Thanks,<br>
-                                The Mega Press Team
+                                The Workshop Indonesia Maju Team
                             </p>
 
                         </td>
@@ -99,10 +99,10 @@
                     <tr>
                         <td align="center" style="padding-top: 32px;">
                             <p style="margin: 0 0 16px 0; font-size: 12px; line-height: 1.5; color: #6e7781; text-align: center;">
-                                You're receiving this email because a verification code was requested for your Mega Press account. If this wasn't you, please ignore this email.
+                                You're receiving this email because a verification code was requested for your Workshop Indonesia Maju account. If this wasn't you, please ignore this email.
                             </p>
                             <p style="margin: 0; font-size: 12px; line-height: 1.5; color: #6e7781; text-align: center;">
-                                Mega Press Inc. &bull; Indonesia
+                                Workshop Indonesia Maju &bull; Indonesia
                             </p>
                         </td>
                     </tr>

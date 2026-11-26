@@ -6,7 +6,7 @@
     <style>
         body { font-family: sans-serif; font-size: 13px; color: #000; }
         .header { border-bottom: 3px solid #000; padding-bottom: 12px; margin-bottom: 24px; text-align: center; }
-        .logo { font-size: 26px; font-weight: bold; letter-spacing: 2px; }
+        .logo { font-size: 20px; font-weight: bold; letter-spacing: 2px; }
         .doc-title { font-size: 14px; font-weight: bold; margin-top: 6px; text-transform: uppercase; letter-spacing: 4px; }
         .info-section { width: 100%; margin-bottom: 24px; }
         .info-section td { width: 50%; vertical-align: top; padding: 10px; border: 1px solid #000; }
@@ -18,7 +18,7 @@
 </head>
 <body>
     <div class="header">
-        <div class="logo">MEGA PRESS</div>
+        <div class="logo">WORKSHOP INDONESIA MAJU</div>
         <div class="doc-title">PACKING SLIP</div>
     </div>
 
@@ -26,7 +26,7 @@
         <tr>
             <td>
                 <strong>PENGIRIM</strong><br>
-                Mega Press Nusantara<br>
+                Workshop Indonesia Maju<br>
                 WA: {{ config('services.whatsapp.number', '6285724693474') }}
             </td>
             <td>

@@ -93,7 +93,7 @@ class CartAndWhatsAppCheckoutTest extends TestCase
 
         $order = Order::with('items')->firstOrFail();
 
-        $this->assertMatchesRegularExpression('/^MP-\d{8}-[A-Z0-9]{4}$/', $order->code);
+        $this->assertMatchesRegularExpression('/^WIM-\d{8}-[A-Z0-9]{4}$/', $order->code);
         $this->assertNull($order->user_id);
         $this->assertSame(Order::STATUS_PENDING, $order->status);
         $this->assertEquals(170000.00, (float) $order->total);

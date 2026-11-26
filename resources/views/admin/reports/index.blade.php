@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Laporan Penjualan | Admin Mega Press')
+@section('title', 'Laporan Penjualan | Admin WIM')
 @section('breadcrumb', 'Laporan')
 @section('page_title', 'Laporan Penjualan & Buku Terlaris')
 
@@ -11,7 +11,7 @@
             Ekspor Excel
         </a>
         <a href="{{ route('admin.reports.index', array_merge(request()->query(), ['export' => 'pdf'])) }}"
-           class="px-4 py-2 rounded-xl bg-[#6E0000] hover:bg-[#520000] text-white text-xs font-bold uppercase tracking-wider">
+           class="px-4 py-2 rounded-xl bg-[#2B3288] hover:bg-[#20266E] text-white text-xs font-bold uppercase tracking-wider">
             Ekspor PDF
         </a>
     </div>
@@ -19,39 +19,39 @@
 
 @section('content')
 <div class="space-y-8">
-    <form method="GET" action="{{ route('admin.reports.index') }}" class="grid grid-cols-1 sm:grid-cols-4 gap-3 bg-[#FAF8F4] p-4 rounded-2xl border border-gray-100">
-        <input type="date" name="start_date" value="{{ $startDate }}" class="h-10 rounded-xl border border-gray-200 bg-white px-3 text-sm">
-        <input type="date" name="end_date" value="{{ $endDate }}" class="h-10 rounded-xl border border-gray-200 bg-white px-3 text-sm">
-        <select name="status" class="h-10 rounded-xl border border-gray-200 bg-white px-3 text-sm">
+    <form method="GET" action="{{ route('admin.reports.index') }}" class="grid grid-cols-1 sm:grid-cols-4 gap-3 bg-[#F5F7FC] p-4 rounded-2xl border border-[#E3E7F3]">
+        <input type="date" name="start_date" value="{{ $startDate }}" class="h-10 rounded-xl border border-[#D9DFEE] bg-white px-3 text-sm">
+        <input type="date" name="end_date" value="{{ $endDate }}" class="h-10 rounded-xl border border-[#D9DFEE] bg-white px-3 text-sm">
+        <select name="status" class="h-10 rounded-xl border border-[#D9DFEE] bg-white px-3 text-sm">
             <option value="all" @selected($status === 'all')>Semua Status</option>
             @foreach(\App\Models\Order::statuses() as $key => $label)
                 <option value="{{ $key }}" @selected($status === $key)>{{ $label }}</option>
             @endforeach
         </select>
-        <button type="submit" class="h-10 rounded-xl bg-[#171512] text-white text-xs font-bold uppercase cursor-pointer">Tampilkan Laporan</button>
+        <button type="submit" class="h-10 rounded-xl bg-[#2B3288] hover:bg-[#20266E] text-white text-xs font-bold uppercase cursor-pointer transition-colors">Tampilkan Laporan</button>
     </form>
 
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <div class="p-5 rounded-2xl border border-gray-100 bg-[#FAF8F4]">
+        <div class="p-5 rounded-2xl border border-[#E3E7F3] bg-[#F5F7FC]">
             <p class="text-xs font-bold uppercase text-gray-400">Total Pesanan</p>
             <p class="text-2xl font-black mt-1">{{ $summary['total_orders'] }}</p>
         </div>
-        <div class="p-5 rounded-2xl border border-gray-100 bg-[#FAF8F4]">
+        <div class="p-5 rounded-2xl border border-[#E3E7F3] bg-[#F5F7FC]">
             <p class="text-xs font-bold uppercase text-gray-400">Lunas / Selesai</p>
             <p class="text-2xl font-black text-emerald-700 mt-1">{{ $summary['paid_orders'] }}</p>
         </div>
-        <div class="p-5 rounded-2xl border border-gray-100 bg-[#FAF8F4]">
+        <div class="p-5 rounded-2xl border border-[#E3E7F3] bg-[#F5F7FC]">
             <p class="text-xs font-bold uppercase text-gray-400">Total Eksemplar</p>
             <p class="text-2xl font-black mt-1">{{ $summary['total_items'] }}</p>
         </div>
-        <div class="p-5 rounded-2xl border border-gray-100 bg-[#FAF8F4]">
+        <div class="p-5 rounded-2xl border border-[#E3E7F3] bg-[#F5F7FC]">
             <p class="text-xs font-bold uppercase text-gray-400">Omzet Lunas</p>
-            <p class="text-xl font-black text-[#DB8B00] mt-1">Rp {{ number_format($summary['total_revenue'], 0, ',', '.') }}</p>
+            <p class="text-xl font-black text-[#2B3288] mt-1">Rp {{ number_format($summary['total_revenue'], 0, ',', '.') }}</p>
         </div>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-        <div class="lg:col-span-5 border border-gray-100 rounded-2xl p-6">
+        <div class="lg:col-span-5 border border-[#E3E7F3] rounded-2xl p-6">
             <h2 class="font-bold text-base mb-4">Top Buku Terlaris</h2>
             <div class="divide-y divide-gray-100">
                 @forelse($bestSellers as $idx => $item)
@@ -60,7 +60,7 @@
                             <p class="font-bold">{{ $idx + 1 }}. {{ $item->book?->title ?: $item->book_title }}</p>
                             <p class="text-xs text-gray-400">Rp {{ number_format((float)$item->total_revenue, 0, ',', '.') }}</p>
                         </div>
-                        <span class="px-2.5 py-1 rounded-full bg-[#F7F09E] text-amber-950 font-bold text-xs">{{ $item->total_sold }} eks</span>
+                        <span class="px-2.5 py-1 rounded-full bg-[#2B3288]/10 text-[#2B3288] font-bold text-xs">{{ $item->total_sold }} eks</span>
                     </div>
                 @empty
                     <p class="text-xs text-gray-400 py-6 text-center">Belum ada data penjualan di periode ini.</p>

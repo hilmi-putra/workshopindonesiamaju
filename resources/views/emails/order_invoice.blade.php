@@ -4,7 +4,7 @@
     <title>Invoice Pesanan Anda</title>
 </head>
 <body>
-    <h2>Terima Kasih atas Pesanan Anda di MegaBookstore!</h2>
+    <h2>Terima Kasih atas Pesanan Anda di WIM Bookstore!</h2>
     <p>Halo {{ $order->user->name }},</p>
     <p>Pembayaran untuk pesanan dengan nomor invoice <strong>{{ $order->invoice_number }}</strong> telah berhasil kami terima.</p>
     
@@ -13,6 +13,6 @@
 
     <br>
     <p>Salam hangat,</p>
-    <p><strong>Tim MegaBookstore</strong></p>
+    <p><strong>Tim WIM Bookstore</strong></p>
 </body>
 </html>

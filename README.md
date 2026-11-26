@@ -1,6 +1,6 @@
-# Mega Press & Mega Bookstore
+# Workshop Indonesia Maju & WIM Bookstore
 
-Platform penerbitan buku, toko buku online (**Mega Bookstore**), blog editorial, dan backoffice admin berbasis **Laravel 12 Monolith + Blade** dengan alur transaksi **Checkout WhatsApp**.
+Platform penerbitan buku, toko buku online (**WIM Bookstore**), blog editorial, dan backoffice admin berbasis **Laravel 12 Monolith + Blade** dengan alur transaksi **Checkout WhatsApp**.
 
 ## Stack Teknologi
 - **Framework**: Laravel 12 (PHP 8.2+) + Blade & Blade Components
@@ -23,7 +23,7 @@ Platform penerbitan buku, toko buku online (**Mega Bookstore**), blog editorial,
    DB_CONNECTION=mysql
    DB_HOST=127.0.0.1
    DB_PORT=3306
-   DB_DATABASE=megapress
+   DB_DATABASE=workshop_indonesia_maju
    DB_USERNAME=root
    DB_PASSWORD=
 
@@ -37,16 +37,16 @@ Platform penerbitan buku, toko buku online (**Mega Bookstore**), blog editorial,
    ```
 4. *(Jika memigrasi database lama yang sudah memiliki data pesanan)*:
    ```bash
-   php artisan megapress:migrate-legacy-data
+   php artisan wim:migrate-legacy-data
    ```
 
 ## Akun Admin Default (Hasil Seeder)
-- **Email**: `superadmin@megapress.co.id`
+- **Email**: `superadmin@workshopindonesiamaju.co.id`
 - **Password**: `passwordhilmi`
 
 ## Alur Checkout WhatsApp & Siklus Status Pesanan
 1. **Guest / User** menambahkan buku ke keranjang (guest disimpan di session, otomatis di-merge ke `cart_items` saat login/register) atau langsung menekan **Beli via WhatsApp** di halaman detail buku.
-2. Saat checkout WA, server membuat pesanan dengan kode unik `MP-YYYYMMDD-XXXX` (`status = pending`), menyimpan snapshot item (`title_snapshot`, `price_snapshot`, `qty`), menghitung total dari harga server, dan mengarahkan ke `https://wa.me/{WHATSAPP_ADMIN_NUMBER}?text=...`.
+2. Saat checkout WA, server membuat pesanan dengan kode unik `WIM-YYYYMMDD-XXXX` (`status = pending`), menyimpan snapshot item (`title_snapshot`, `price_snapshot`, `qty`), menghitung total dari harga server, dan mengarahkan ke `https://wa.me/{WHATSAPP_ADMIN_NUMBER}?text=...`.
 3. **Stok tidak berkurang saat checkout**.
 4. **Siklus Status Admin**:
    - `pending` → `confirmed` (**Stok berkurang otomatis** dengan `DB::transaction` + `lockForUpdate`, dicatat ke `stock_movements`)

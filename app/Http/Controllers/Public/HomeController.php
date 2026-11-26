@@ -69,7 +69,7 @@ class HomeController extends Controller
                 $existing->update(['status' => 'subscribed', 'subscribed_at' => now()]);
                 return back()->with('success', 'Langganan newsletter Anda diaktifkan kembali.');
             }
-            return back()->with('success', 'Email Anda sudah terdaftar di newsletter Mega Press.');
+            return back()->with('success', 'Email Anda sudah terdaftar di newsletter Workshop Indonesia Maju.');
         }
 
         NewsletterSubscriber::create([
@@ -78,7 +78,7 @@ class HomeController extends Controller
             'subscribed_at' => now(),
         ]);
 
-        return back()->with('success', 'Berhasil berlangganan newsletter Mega Press!');
+        return back()->with('success', 'Berhasil berlangganan newsletter Workshop Indonesia Maju!');
     }
 
     public function sitemap(): Response

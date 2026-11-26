@@ -43,6 +43,6 @@ class RegisterController extends Controller
         $cartService->mergeSessionToDatabase($user);
 
         return redirect()->intended($user->getDashboardUrl())
-            ->with('success', 'Akun berhasil dibuat! Selamat datang di Mega Press.');
+            ->with('success', 'Akun berhasil dibuat! Selamat datang di Workshop Indonesia Maju.');
     }
 }

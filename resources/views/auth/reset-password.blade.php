@@ -1,6 +1,6 @@
 @extends('layouts.auth')
 
-@section('title', 'Buat Kata Sandi Baru | Mega Press')
+@section('title', 'Buat Kata Sandi Baru | Workshop Indonesia Maju')
 
 @section('content')
 <div class="bg-white p-8 sm:p-12 rounded-2xl shadow-xl w-full">

@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Newsletter | Admin Mega Press')
+@section('title', 'Newsletter | Admin WIM')
 @section('breadcrumb', 'Newsletter')
 @section('page_title', 'Manajemen Newsletter')
 
@@ -13,18 +13,25 @@
 @section('content')
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
     <div class="lg:col-span-5 space-y-6">
-        <form method="POST" action="{{ route('admin.newsletter.broadcast') }}" class="bg-[#FAF8F4] p-6 rounded-2xl border border-gray-100 space-y-4">
+        <form method="POST"
+              action="{{ route('admin.newsletter.broadcast') }}"
+              data-confirm
+              data-confirm-title="Kirim Broadcast Newsletter?"
+              data-confirm-message="Pesan ini akan dicatat dan dikirimkan ke seluruh subscriber aktif."
+              data-confirm-button="Ya, Kirim Broadcast"
+              data-confirm-variant="primary"
+              class="bg-[#F5F7FC] p-6 rounded-2xl border border-[#E3E7F3] space-y-4">
             @csrf
             <h2 class="font-bold text-base">Buat Pesan Broadcast</h2>
             <x-input name="subject" label="Subjek Email" required />
             <div>
                 <label class="block text-xs font-bold uppercase tracking-wider mb-1">Konten Pesan *</label>
-                <textarea name="content" rows="5" required class="w-full rounded-xl border border-[#DDD8C8] bg-white px-3 py-2 text-sm"></textarea>
+                <textarea name="content" rows="5" required class="w-full rounded-xl border border-[#D9DFEE] bg-white px-3 py-2 text-sm"></textarea>
             </div>
             <x-button type="submit" variant="primary" class="w-full">Catat &amp; Kirim Broadcast</x-button>
         </form>
 
-        <div class="border border-gray-100 rounded-2xl p-5">
+        <div class="border border-[#E3E7F3] rounded-2xl p-5">
             <h3 class="font-bold text-xs uppercase tracking-wider text-gray-400 mb-3">Riwayat Broadcast</h3>
             @forelse($messages as $msg)
                 <div class="py-2.5 border-b border-gray-100 last:border-0 text-xs">
@@ -39,16 +46,23 @@
 
     <div class="lg:col-span-7 space-y-4">
         <h2 class="font-bold text-base">Daftar Subscriber ({{ $subscribers->total() }})</h2>
-        <div class="border border-gray-100 rounded-2xl divide-y divide-gray-100">
+        <div class="border border-[#E3E7F3] rounded-2xl divide-y divide-gray-100">
             @forelse($subscribers as $sub)
                 <div class="p-3.5 flex justify-between items-center text-sm">
                     <div>
                         <p class="font-semibold">{{ $sub->email }}</p>
                         <p class="text-xs text-gray-400">{{ $sub->status }} &middot; {{ optional($sub->subscribed_at ?? $sub->created_at)->format('d M Y') }}</p>
                     </div>
-                    <form method="POST" action="{{ route('admin.newsletter.subscribers.destroy', $sub) }}">
+                    <form method="POST"
+                          action="{{ route('admin.newsletter.subscribers.destroy', $sub) }}"
+                          data-confirm
+                          data-confirm-title="Hapus Subscriber?"
+                          data-confirm-message="Alamat email ini akan dihapus dari daftar subscriber newsletter."
+                          data-confirm-item="{{ $sub->email }}"
+                          data-confirm-button="Ya, Hapus"
+                          data-confirm-variant="danger">
                         @csrf @method('DELETE')
-                        <button type="submit" class="text-xs text-red-600 font-bold cursor-pointer">Hapus</button>
+                        <button type="submit" class="text-xs text-red-600 font-bold hover:underline cursor-pointer">Hapus</button>
                     </form>
                 </div>
             @empty

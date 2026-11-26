@@ -16,7 +16,7 @@
 </head>
 <body>
     <div class="header">
-        <span class="title">MEGA PRESS - LAPORAN PRODUK TERLARIS</span><br>
+        <span class="title">WORKSHOP INDONESIA MAJU - LAPORAN PRODUK TERLARIS</span><br>
         <small style="color: #666;">Dicetak pada: {{ now()->format('d M Y H:i') }}</small>
     </div>
 
@@ -48,7 +48,7 @@
     </table>
 
     <div class="footer">
-        Mega Press Publishing Platform &copy; {{ date('Y') }}. Data berdasarkan pesanan yang telah lunas dan berhasil.
+        Workshop Indonesia Maju &copy; {{ date('Y') }}. Data berdasarkan pesanan yang telah lunas dan berhasil.
     </div>
 </body>
 </html>
