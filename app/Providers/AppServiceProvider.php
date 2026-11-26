@@ -1,0 +1,24 @@
+<?php
+
+namespace App\Providers;
+
+use App\Models\Book;
+use App\Models\Order;
+use App\Policies\BookPolicy;
+use App\Policies\OrderPolicy;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\ServiceProvider;
+
+class AppServiceProvider extends ServiceProvider
+{
+    public function register(): void
+    {
+        //
+    }
+
+    public function boot(): void
+    {
+        Gate::policy(Order::class, OrderPolicy::class);
+        Gate::policy(Book::class, BookPolicy::class);
+    }
+}

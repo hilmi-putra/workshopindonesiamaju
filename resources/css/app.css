@@ -1,0 +1,82 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme inline {
+    --color-cream: #FAF8F4;
+    --color-ink: #171512;
+    --color-primary-brand: #DB8B00;
+    --color-secondary-brand: #6E0000;
+    --color-forest-brand: #084c3c;
+    --color-surface-muted: #DAD6C9;
+    --color-surface-white: #FFFFFF;
+    --color-text-muted: #6B6860;
+    --color-border-subtle: #DDD8C8;
+
+    --font-sans: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+    --font-heading: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-serif: 'Playfair Display', Georgia, serif;
+}
+
+@layer base {
+    html {
+        font-family: var(--font-sans);
+        scroll-behavior: smooth;
+        scrollbar-width: thin;
+        scrollbar-color: #F9990E transparent;
+    }
+
+    body {
+        background-color: var(--color-cream);
+        color: var(--color-ink);
+    }
+
+    [x-cloak] {
+        display: none !important;
+    }
+
+    ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: #F9990E;
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: #db8b00;
+    }
+}
+
+@keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee 28s linear infinite;
+}
+
+.animate-marquee:hover {
+    animation-play-state: paused;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
